@@ -10,9 +10,14 @@ import java.util.Objects;
 @Table(name = "socks")
 public class Sock {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "color")
+    @NotNull
     private String color;
 
-    @Column(name = "cottonpart")
+    @Column(name = "cotton_part")
     @NotNull
     @Size(min = 0, max = 100)
     private short cottonPart;
