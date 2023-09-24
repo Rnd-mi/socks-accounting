@@ -1,13 +1,11 @@
 package ru.stepanov.socksaccounting.service;
 
-import ru.stepanov.socksaccounting.model.Sock;
-
-import java.util.List;
+import ru.stepanov.socksaccounting.dto.SockDto;
 
 public interface SocksService {
-    void income(Sock sockDto);
+    void income(SockDto sockDto);
 
-    void outcome(Sock sockDto);
+    void outcome(SockDto sockDto);
 
-    List<Sock> getAll();
+    Integer getQuantity(String color, String operation, short cottonPart);
 }
