@@ -1,6 +1,8 @@
 package ru.stepanov.socksaccounting.service;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import ru.stepanov.socksaccounting.exception.InvalidDataFormat;
 import ru.stepanov.socksaccounting.model.Sock;
 import ru.stepanov.socksaccounting.repository.SocksRepository;
 
@@ -16,7 +18,11 @@ public class SocksServiceImpl implements SocksService {
 
     @Override
     public void income(Sock sock) {
-        repository.save(sock);
+        try {
+            repository.save(sock);
+        } catch (DataIntegrityViolationException e) {
+            throw new InvalidDataFormat();
+        }
     }
 
     @Override
