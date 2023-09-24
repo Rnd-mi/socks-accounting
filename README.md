@@ -6,10 +6,12 @@ Endpoints:
 - "api/socks?color=...&operation=...&cottonPart=..." - advanced search based on color and cotton part
 
 ----
+
 Stack:
 - Java 17
 - Spring boot
 - Jpa
 - Postresql
 - Liquibase
+
 ----
