@@ -1,4 +1,4 @@
-package ru.stepanov.socksaccounting.dao;
+package ru.stepanov.socksaccounting.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -8,13 +8,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "socks")
-public class SockDao {
+public class Sock {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "color")
-    @NotNull
     private String color;
 
     @Column(name = "cottonpart")
@@ -27,12 +22,36 @@ public class SockDao {
     @Size(min = 1)
     private int quantity;
 
-    public SockDao() {
+    public Sock() {
     }
 
-    public SockDao(String color, short cottonPart, int quantity) {
+    public Sock(String color, short cottonPart, int quantity) {
         this.color = color;
         this.cottonPart = cottonPart;
+        this.quantity = quantity;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public short getCottonPart() {
+        return cottonPart;
+    }
+
+    public void setCottonPart(short cottonPart) {
+        this.cottonPart = cottonPart;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -40,12 +59,12 @@ public class SockDao {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SockDao sockDao = (SockDao) o;
-        return id == sockDao.id;
+        Sock sock = (Sock) o;
+        return color.equals(sock.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(color);
     }
 }

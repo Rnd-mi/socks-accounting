@@ -2,7 +2,7 @@ package ru.stepanov.socksaccounting.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.stepanov.socksaccounting.dto.SockDto;
+import ru.stepanov.socksaccounting.model.Sock;
 import ru.stepanov.socksaccounting.service.SocksService;
 
 import java.util.List;
@@ -18,17 +18,17 @@ public class SocksController {
     }
 
     @PostMapping("/income")
-    public void income(@RequestBody SockDto sockDto) {
+    public void income(@RequestBody Sock sockDto) {
         service.income(sockDto);
     }
 
     @PostMapping("/outcome")
-    public SockDto outcome() {
-        return service.outcome();
+    public void outcome(@RequestBody Sock sockDto) {
+        service.outcome(sockDto);
     }
 
     @GetMapping
-    public List<SockDto> getAll() {
+    public List<Sock> getAll() {
         return service.getAll();
     }
 }
