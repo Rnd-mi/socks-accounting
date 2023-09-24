@@ -12,16 +12,16 @@ import java.util.Objects;
 public class SockDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @Column(name = "color")
     @NotNull
     private String color;
 
-    @Column(name = "cottonPart")
+    @Column(name = "cottonpart")
     @NotNull
     @Size(min = 0, max = 100)
-    private int cottonPart;
+    private short cottonPart;
 
     @Column(name = "quantity")
     @NotNull
@@ -31,7 +31,7 @@ public class SockDao {
     public SockDao() {
     }
 
-    public SockDao(String color, int cottonPart, int quantity) {
+    public SockDao(String color, short cottonPart, int quantity) {
         this.color = color;
         this.cottonPart = cottonPart;
         this.quantity = quantity;

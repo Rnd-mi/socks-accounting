@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.stepanov.socksaccounting.dao.SockDao;
 
 @Repository
-public interface SocksRepository extends JpaRepository<SockDao, Long> {
+public interface SocksRepository extends JpaRepository<SockDao, Integer> {
 }
